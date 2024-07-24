@@ -10,7 +10,7 @@ function Navbar() {
   const toggleInputVisibility = () => setInputVisible(!isInputVisible); // Step 2: Event handler to toggle visibility
 
   return (
-    <div className="flex items-center justify-between px-6 md:px-[200px] py-4" style={{ backgroundColor: '#1f2120', color:'#d9d8d7'}}>
+    <div className="flex items-center justify-between px-6 md:px-[200px] py-4" style={{ backgroundColor: 'white', color:'#030303'}}>
       <h1 className="text-lg md:text-xl font-extrabold"><Link to='/'>Dare</Link></h1>
       <div className="flex items-center justify-center space-x-2 md:space-x-4">
         <p onClick={toggleInputVisibility} style={{ cursor: 'pointer' }}><BsSearch /></p> 
