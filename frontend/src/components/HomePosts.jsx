@@ -1,25 +1,48 @@
-var x = 1;
-function HomePosts() {
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
+function HomePosts({ title, author, date, time, description, imageUrl1, imageUrl2 }) {
+  const [x, setX] = useState(1);
+
+  useEffect(() => {
+    // Example logic to update x dynamically
+    const interval = setInterval(() => {
+      setX(prevX => prevX + 1);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="w-full flex mt-8 space-x-4">
       <div className="w-[35%] h-[200px] flex justify-center items-center">
-        {x%2 ? <img src="https://cdn.sanity.io/images/tlr8oxjg/production/9f15109746df254c5a030a7ba9239f8a4bb5dadb-1456x816.png?w=3840&q=100&fit=clip&auto=format" alt="" className="" /> : <img src="https://instructor-academy.onlinecoursehost.com/content/images/2023/05/31_How-to-Create-a-Programming-Course_.jpg" alt="" className="" />}
+          <img src={imageUrl1} alt="a" className="" />
       </div>
       <div className="flex flex-col w-[65%]">
         <h1 className="text-xl font-bold md:mb-2 mb-1 mb:text-2xl text-[#282828]">
-          My first post
+          {title}
         </h1>
         <div className="flex mb-2 text-sm font-semibold text-[#282828] space-x-4 md:mb-4 items-center justify-between">
-          <p>Darelifeeee</p>
+          <p>{author}</p>
           <div className="flex space-x-2">
-            <p>16/6/24</p>
-            <p>16:45</p>
+            <p>{date}</p>
+            <p>{time}</p>
           </div>
         </div>
-        <p className="text-sm md:text-lg text-[#282828]">Post description</p>
+        <p className="text-sm md:text-lg text-[#282828]">{description}</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default HomePosts
+HomePosts.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  imageUrl1: PropTypes.string.isRequired,
+  imageUrl2: PropTypes.string.isRequired,
+};
+
+export default HomePosts;

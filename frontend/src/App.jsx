@@ -2,7 +2,8 @@ import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import {Route, Routes} from 'react-router-dom'
 import Home from "./pages/Home.jsx"
-import Register from "./pages/Register.jsx"
+import Login from "./pages/Login.jsx"
+// import Register from "./pages/Register.jsx"
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} /> 
-        <Route path="/Register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/Register" element={<Register />} /> */}
 
       </Routes>
       <Footer />

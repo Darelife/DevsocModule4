@@ -4,7 +4,25 @@ import { BsSearch } from 'react-icons/bs';
 
 function Navbar() {
   // const [user, setUser] = useState(true);
-  const user = true;
+  // const user = true;
+  // check the cookies for the user
+  let user;
+  const cookieName = 'token'; // Replace with the actual cookie name
+
+  // Function to get a cookie by name
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+
+  // Check if the specific cookie exists
+  if (getCookie(cookieName)) {
+    user = true;
+  } else {
+    user = false;
+  }
   const [isInputVisible, setInputVisible] = useState(false); // Step 1: State for input visibility
 
   const toggleInputVisibility = () => setInputVisible(!isInputVisible); // Step 2: Event handler to toggle visibility
