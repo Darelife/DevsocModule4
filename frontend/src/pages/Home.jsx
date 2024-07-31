@@ -37,7 +37,6 @@ const Home = () => {
             time={post.createdAt.substring(11,19)} 
             description={post.description} 
             imageUrl1={post.photo} 
-            imageUrl2={post.photo} 
           />
         )
       ))}

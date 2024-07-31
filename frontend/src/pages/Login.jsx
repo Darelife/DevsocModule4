@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import axios from 'axios';
 
 const Login = () => {
@@ -8,13 +8,16 @@ const Login = () => {
     const data = new FormData(form);
     const username = data.get('username');
     const password = data.get('password');
+    let data1 = "";
     
 //     i want the username and password to go in the body
     axios.post('http://localhost:4030/api/auth/login',{username, password})
-    .then(response => {console.log('Response:', response.data);
+    .then(response => {console.log('Response:', response.data); data1=response.data;
   })
   .catch(error => {console.error('Error:', error);
   });
+  // create a cookie
+  document.cookie = 'token=' + data1;
 
   };
 

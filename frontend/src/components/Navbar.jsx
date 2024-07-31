@@ -9,16 +9,13 @@ function Navbar() {
   let user;
   const cookieName = 'token'; // Replace with the actual cookie name
 
-  // Function to get a cookie by name
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-  }
+  // function to check whether a cookie exists
+  const cookieExists = (name) => {
+    return document.cookie.split(';').some(cookie => cookie.trim().startsWith(name + '='));
+  };
 
   // Check if the specific cookie exists
-  if (getCookie(cookieName)) {
+  if (cookieExists(cookieName)) {
     user = true;
   } else {
     user = false;
@@ -39,5 +36,7 @@ function Navbar() {
     </div>
   )
 }
+
+
 
 export default Navbar; // Corrected the function name to follow the convention

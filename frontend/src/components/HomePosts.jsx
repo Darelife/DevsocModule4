@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-function HomePosts({ title, author, date, time, description, imageUrl1, imageUrl2 }) {
+function HomePosts({ title, author, date, time, description, imageUrl1 }) {
   const [x, setX] = useState(1);
 
   useEffect(() => {
